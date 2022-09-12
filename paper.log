@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.8.30)  30 AUG 2022 17:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.8.30)  1 SEP 2022 12:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -284,8 +284,7 @@ tex.def
 File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count281
 \l__pdf_internal_box=\box54
-)
-No file paper.aux.
+) (paper.aux)
 \openout1 = `paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
@@ -307,6 +306,7 @@ LaTeX Font Info:    ... okay on input line 52.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
 LaTeX Font Info:    ... okay on input line 52.
 Package hyperref Info: Link coloring ON on input line 52.
+ (paper.out) (paper.out)
 \@outlinefile=\write3
 \openout3 = `paper.out'.
 
@@ -363,8 +363,8 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 53
 (C:\Users\Dhruv\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 9
-4.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 6
+9.
 
 (C:\Users\Dhruv\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
@@ -374,204 +374,160 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 94.
+(Font)              <9> on input line 69.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 94.
+(Font)              <5> on input line 69.
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 [][][]$\OT1/pcr/m/n/9 http : / / acl2020 . org / downloads /
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 99.
+(Font)              <10.95> on input line 74.
+
+Package natbib Warning: Citation `Gusfield:97' on page 1 undefined on input lin
+e 91.
+
+
+Package natbib Warning: Citation `Gusfield:97' on page 1 undefined on input lin
+e 95.
+
 [1{C:/Users/Dhruv/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 
 
 ]
 
-LaTeX Warning: Reference `sec:appendix' on page 2 undefined on input line 122.
-
-
-LaTeX Warning: Reference `sec:supplemental' on page 2 undefined on input line 1
-22.
+Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
+e 200.
 
 
 Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
-e 131.
+e 200.
+
+
+Package natbib Warning: Citation `Aho:72' on page 2 undefined on input line 202
+.
+
+
+Package natbib Warning: Citation `Chandra:81' on page 2 undefined on input line
+ 202.
 
 
 Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
-e 135.
+e 202.
 
 
-LaTeX Warning: Reference `ssec:title-authors' on page 2 undefined on input line
- 160.
+Package natbib Warning: Citation `Aho:72' on page 2 undefined on input line 202
+.
 
 
-LaTeX Warning: Reference `sec:length' on page 2 undefined on input line 163.
+Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
+e 207.
 
-[2]
+
+Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
+e 211.
+
+
+Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
+e 220.
+
+
+Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
+e 221.
+
+
+Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
+e 222.
+
+
+Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
+e 223.
+
+
+Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
+e 236.
+
+
+Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
+e 237.
+
+
+Package natbib Warning: Citation `Gusfield:97' on page 2 undefined on input lin
+e 238.
+
+
+Package natbib Warning: Citation `APA:83' on page 2 undefined on input line 246
+.
+
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
-01.
- (C:\Users\Dhruv\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+56.
+(C:\Users\Dhruv\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
-LaTeX Warning: Reference `font-table' on page 3 undefined on input line 217.
-
-[3]
-
-LaTeX Warning: Reference `ssec:accessibility' on page 4 undefined on input line
- 313.
+Package natbib Warning: Citation `Ando2005' on page 2 undefined on input line 2
+56.
 
 
-LaTeX Warning: Reference `font-table' on page 4 undefined on input line 321.
+Package natbib Warning: Citation `borschinger-johnson-2011-particle' on page 2 
+undefined on input line 257.
 
 
-LaTeX Warning: Reference `tab:accents' on page 4 undefined on input line 322.
-
-[4]
-
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 363.
+Package natbib Warning: Citation `andrew2007scalable' on page 2 undefined on in
+put line 258.
 
 
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 363.
+Package natbib Warning: Citation `rasooli-tetrault-2015' on page 2 undefined on
+ input line 259.
 
 
-Package natbib Warning: Citation `Aho:72' on page 5 undefined on input line 365
-.
+Package natbib Warning: Citation `goodman-etal-2016-noise' on page 2 undefined 
+on input line 284.
 
 
-Package natbib Warning: Citation `Chandra:81' on page 5 undefined on input line
- 365.
+Package natbib Warning: Citation `harper-2014-learning' on page 2 undefined on 
+input line 285.
 
-
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 365.
-
-
-Package natbib Warning: Citation `Aho:72' on page 5 undefined on input line 365
-.
-
-
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 370.
-
-
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 374.
-
-
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 383.
-
-
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 384.
-
-
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 385.
-
-
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 386.
-
-
-LaTeX Warning: Reference `citation-guide' on page 5 undefined on input line 397
-.
-
-
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 399.
-
-
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 400.
-
-
-Package natbib Warning: Citation `Gusfield:97' on page 5 undefined on input lin
-e 401.
-
-
-Package natbib Warning: Citation `APA:83' on page 5 undefined on input line 409
-.
-
-
-Package natbib Warning: Citation `Ando2005' on page 5 undefined on input line 4
-19.
-
-
-Package natbib Warning: Citation `borschinger-johnson-2011-particle' on page 5 
-undefined on input line 420.
-
-
-Package natbib Warning: Citation `andrew2007scalable' on page 5 undefined on in
-put line 421.
-
-
-Package natbib Warning: Citation `rasooli-tetrault-2015' on page 5 undefined on
- input line 422.
-
-
-Package natbib Warning: Citation `goodman-etal-2016-noise' on page 5 undefined 
-on input line 447.
-
-
-Package natbib Warning: Citation `harper-2014-learning' on page 5 undefined on 
-input line 448.
-
-
-LaTeX Warning: Reference `sec:appendix' on page 5 undefined on input line 457.
-
-[5]
+[2]
 No file paper.bbl.
-[6]
+[3]
 
 Package natbib Warning: There were undefined citations.
 
-[7
+[4
 
 ] (paper.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-
-Package rerunfilecheck Warning: File `paper.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `paper.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `paper.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  )
 (\end occurred when \ifx on line 17 was incomplete) 
 Here is how much of TeX's memory you used:
- 12661 strings out of 478338
- 204956 string characters out of 2836700
- 550058 words of memory out of 3000000
- 30608 multiletter control sequences out of 15000+600000
- 508153 words of font info for 261 fonts, out of 8000000 for 9000
+ 12583 strings out of 478338
+ 204398 string characters out of 2836700
+ 557851 words of memory out of 3000000
+ 30606 multiletter control sequences out of 15000+600000
+ 502484 words of font info for 211 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,12n,91p,1004b,446s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{C:/Users/Dhruv/AppData/Loca
-l/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Dhruv/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Dhruv/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Dhruv/
-AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Dhru
-v/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/D
-hruv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/D
-hruv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/D
-hruv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (7 pages, 141798 bytes).
+
+pdfTeX warning (dest): name{table.caption.12} has been referenced but does not 
+exist, replaced by a fixed one
+
+{C:/Users/Dhruv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/U
+sers/Dhruv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:
+/Users/Dhruv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb>
+<C:/Users/Dhruv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb>
+<C:/Users/Dhruv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
+<C:/Users/Dhruv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb
+>
+Output written on paper.pdf (4 pages, 101463 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 500000)
- 57345 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
+ 51201 words of extra memory for PDF output out of 51595 (max. 10000000)
 
