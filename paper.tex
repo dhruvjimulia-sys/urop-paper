@@ -24,6 +24,9 @@
 \usepackage{microtype}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{array}
+\usepackage{multirow}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 
 %\aclfinalcopy % Uncomment this line for the final submission
 %\def\aclpaperid{***} %  Enter the acl Paper ID here
@@ -86,6 +89,7 @@ To build binary classifiers for detecting multiple sclerosis from free text, we 
 \subsection{Ethics and privacy}
 The risks associated with our data collection and data access methods are minimal. All the posts collected from Twitter and Reddit were publicly available through the Twitter and Reddit API respectively. We replaced social media usernames with user identifier codes to anonymise their identity. Although the MSRegister database contains identifiable information, including the gender and date of birth of the patients, this database was accessed through a secure virtual desktop environment, so the identifiable information remains private. For both the patients in the MSRegister database and the social media users, we made no attempt identify the users with other external sources of information. Therefore, this research was conducted in compliance to the GDBR guidelines of data protection \citep{GDBR:16}.
 \section{Datset Analysis}
+\label{sec:dataanalysis}
 \begin{figure*}[h!]
   \centering
   \begin{subfigure}[b]{0.3\linewidth}
@@ -102,13 +106,13 @@ The risks associated with our data collection and data access methods are minima
     \includegraphics[width=\linewidth]{controltwofinal.png}
     \caption{Control Two (Diabetes)}
   \end{subfigure}
-  \caption{Word Clouds For Different Parts Of The Dataset}
+  \caption{Word Clouds For Each Part of the Dataset}
   \label{fig:wordclouds}
 \end{figure*}
 To increase our understanding of the newly created dataset, we started by conducting some preliminary data analysis on our dataset. \\
 \indent To begin with, we created word clouds from the text given by the MS-diagnosed users (Figure \ref{fig:wordclouds}a), the generic control one users (Figure \ref{fig:wordclouds}b), and the diabetes control two users (Figure \ref{fig:wordclouds}c).  Before creating each of these word clouds, the text was made lowercase, stop words were removed from the text, and the text was tokenized. \\
 \indent Inspecting the word clouds, we see that it is consistent with our expectations of the various parts of the dataset. Words prevalent in the MS-diagnosed group that are absent in the other groups are ‘fatigue’, ‘walking’, ‘pain’, ‘support’ and ‘wheelchair’, which are words representing symptoms of MS \citep{Gustavsen:21}. Common words in the diabetes control group are ‘diet’, ‘weight’, ‘eating’, 'sugar', and 'blood', which is as expected given the symptoms of diabetes \citep{Ramachandran:14}. The generic control group contains common words used in social media, such as ‘love’, ‘game’, ‘people’ and ‘one’. Words used commonly in the English language, like ‘time’ and ‘get’ were present in all three sections of the dataset. Another notable point is that the word ‘ms’ is not present in the MS-diagnosed group and the word ‘diabetes’ is not present in the diabetes control group. This is consistent with the dataset construction method because all clauses with the word ‘ms’ were removed from the MS-diagnosed dataset and similarly all clauses with the word ‘diabetes’ were removed from the diabetes control group, as explained in the ‘Dataset construction’ section above. \\
-\indent In addition to generating the word clouds for the dataset, we decided to count the average number of tokens per comment for each part of the dataset. The results of this investigation are shown in Table ****. We observe that the average number of tokens is the greatest for the diabetes control group, lower for the MS-diagnosed control group and lowest for the generic social media control group. Since sentence length varies significantly across the dataset, we need to ensure that the classifiers we train on the dataset do not rely only on the length of the comment for text classification. The implications of this difference are further discussed in the next section.
+\indent In addition to generating the word clouds for the dataset, we decided to count the average number of tokens per comment for each part of the dataset. The results of this investigation are shown in \autoref{tab:avglengths}. We observe that the average number of tokens is the greatest for the diabetes control group, lower for the MS-diagnosed control group and lowest for the generic social media control group. Since sentence length varies significantly across the dataset, we need to ensure that the classifiers we train on the dataset do not rely only on the length of the comment for text classification. The implications of this difference are further discussed in the next section.
 \begin{table}
 \centering
 \begin{tabular}{p{0.5\linewidth}p{0.4\linewidth}}
@@ -120,8 +124,8 @@ Control One (Generic) & {14.1} \\
 Control Two (Diabetes) & {85.3} \\ 
 \hline
 \end{tabular}
-\caption{Average number of tokens per comment for evry part of the dataset}
-\label{tab:}
+\caption{Average number of tokens per comment for every part of the dataset}
+\label{tab:avglengths}
 \end{table}
 \section{Experiments}
 In order to understand which classifier is the best for detecting MS, we experimented several ways to convert text to word vectors and we applied various classification models on these word vectors. \\
@@ -130,12 +134,50 @@ In order to understand which classifier is the best for detecting MS, we experim
 \indent The dataset was then split into 80\% training dataset and a 20\% testing dataset. For each of the three methods to convert text into word vectors, we train and test the dataset on the following classifiers: \\
 \indent \textbf{Logistic Regression.} We started by training a simple logistic regression model on the word vectors. \\
 \indent \textbf{Naïve Bayes.} For the BoW vectors and the tf-idf weighted BoW, we train the probabilistic multinomial Naïve Bayes classifier. Since the multinomial Naïve Bayes classifier expects positive word vectors and our word embeddings contain values from -1 to 1, we normalize the word embedding values to the range 0 to 1 and then train the classifier. \\
-\indent \textbf{K-Nearest Neighbours (KNN).} For the KNN classifier, we set the value k to 1, 2, 3, 5, 8, 10, and 100. The best accuracy was then recorded in Table ***. \\
-\indent \textbf{Neural Network.} We decided to investigate both a single-layer neural network and two-layer neural network. We set the number of epochs to 10 and batch size to 64. In the final layer, we use the sigmoid activation function, and for non-output layers, we tried both the ReLU and tanh activation function. For the two-layer neural network, we set the number of neurons in the hidden layer to 50, 100 and 200. After testing these hyperparameters, the best accuracy was then recorded in Table ****. \\
-\indent \textbf{Recurrent Neural Network (RNN).} Since we need an embedding for each word for the RNN, BoW and tfidf-weighted BoW cannot be used for this model. Furthermore, the RNN, by nature of being a sequential model, exemplifies the difference between input sequence lengths. Since we know that the average comment length varies considerably in different sections of the dataset, as shown in Table **** in Section ****, for RNNs we particularly need to make sure that the classifier does not rely only on the length of the text for classification. Therefore, we set the number of RNN units to minimum of the average comment lengths of the datasets in question (rounded up). Accordingly, from the values in Table **** in Section ****, we set the number of RNN units for diagnosed users vs. control one (generic) to be 15 and diagnosed users vs. control two (diabetes) to 30. Then, any comments with longer lengths were truncated to the number of RNN units. This strategy ensures that the classifier relies on the content of the text rather than its length. Lastly, we set the number of epochs to 10 and batch size to 64 before training. \\
+\indent \textbf{K-Nearest Neighbours (KNN).} For the KNN classifier, we set the value k to 1, 2, 3, 5, 8, 10, and 100. The best accuracy was then recorded in \autoref{tab:results}. \\
+\indent \textbf{Neural Network.} We decided to investigate both a single-layer neural network and two-layer neural network. We set the number of epochs to 10 and batch size to 64. In the final layer, we use the sigmoid activation function, and for non-output layers, we tried both the ReLU and tanh activation function. For the two-layer neural network, we set the number of neurons in the hidden layer to 50, 100 and 200. After testing these hyperparameters, the best accuracy was then recorded in \autoref{tab:results}. \\
+\indent \textbf{Recurrent Neural Network (RNN).} Since we need an embedding for each word for the RNN, BoW and tfidf-weighted BoW cannot be used for this model. Furthermore, the RNN, by nature of being a sequential model, exemplifies the difference between input sequence lengths. Since we know that the average comment length varies considerably in different sections of the dataset, as shown in Table \ref{tab:avglengths} of \autoref{sec:dataanalysis}, for RNNs we particularly need to make sure that the classifier does not rely only on the length of the text for classification. Therefore, we set the number of RNN units to minimum of the average comment lengths of the datasets in question (rounded up). Accordingly, from the values in \autoref{tab:avglengths} of \autoref{sec:dataanalysis}, we set the number of RNN units for diagnosed users vs. control one (generic) to be 15 and diagnosed users vs. control two (diabetes) to 30. Then, any comments with longer lengths were truncated to the number of RNN units. This strategy ensures that the classifier relies on the content of the text rather than its length. Lastly, we set the number of epochs to 10 and batch size to 64 before training. \\
 \indent \textbf{Long Short-Term Memory Network (LSTM).} The hyperparameters used for the LSTM model were kept the same as the RNN, and for the same reasons as the RNN. BoW and tfidf-weighted BoW could not be used for this model as well, and the number of LSTM units was again chosen to be 15 with control one and 30 with control two. The number of epochs was set to 10 and batch size to 64. \\
-\indent The results for each of these classification models are reported in Table ****. \\
-****Tables \\
+\indent The results for each of these classification models are reported in \autoref{tab:results}. \\
+\begin{table*}
+\centering
+\begin{tabular}{p{0.12\linewidth}p{0.1\linewidth}p{0.05\linewidth}p{0.1\linewidth}p{0.12\linewidth}p{0.05\linewidth}p{0.1\linewidth}p{0.1\linewidth}}
+\hline\hline
+ & & \multicolumn{3}{C{0.25\linewidth}}{\textbf{MS-Diagnosed vs. Control One (Generic)}} & \multicolumn{3}{C{0.25\linewidth}}{\textbf{MS-Diagnosed vs. Control Two (Diabetes)}}\\
+ & & BoW & tfidf-BoW & Embeddings &  BoW & tfidf-BoW & Embeddings\\
+\hline
+\multirow{3}{\linewidth}{\textbf{Logistic Regression}} & Precision & 96.3 & 95.2	& 90.5 & 90.3 & 90.2 & 87.4\\
+ & Accuracy & 92.9 & 93.3 & 91.8 & 91.3 & 91.7 & 86.4 \\
+ & Recall & 90.5 & 92.0 & 93.3 & 92.5 & 93.4 & 86.3 \\
+\hline
+\multirow{3}{\linewidth}{\textbf{Naïve Bayes}} & Precision & 88.6 & 89.2 & 85.4 & 93.4 & 93.8 & 86.8\\
+ & Accuracy & 91.0 & 91.6 & 87.5 & 92.0 & 92.4 & 77.2\\
+ & Recall & 93.6 & 94.2 & 89.7 & 91.2 & 91.6 & 73.5\\
+\hline
+\multirow{3}{\linewidth}{\textbf{KNN}} & Precision & 70.8	& 66.6 & 85.0 & 71.5 & 83.0 & 94.6\\
+ & Accuracy & 83.5 & 78.3 & 87.1 & 77.3 & 85.1 & 77.8\\
+ & Recall & 96.1 & 88.1 & 89.2 & 81.3 & 87.2 & 71.4\\
+\hline
+\multirow{3}{\linewidth}{\textbf{1-Layer Neural Network}} & Precision & 94.2 & 92.4 & 94.8 & 92.3 & 90.9 & 91.5\\
+ & Accuracy & 92.3 & 92.6 & 93.9 & 91.5 & 90.8 & 89.8\\
+ & Recall & 91.2 & 93.2 & 93.4 & 91.1 & 91.2 & 88.9\\
+\hline
+\multirow{3}{\linewidth}{\textbf{2-Layer Neural Network}} & Precision & 94.1 & 95.0 & 95.8 & 90.2 & 90.6 & 88.7\\
+ & Accuracy & 92.9 & 93.3 & 94.3 & 90.8 & 91.6 & 90.1\\
+ & Recall & 92.3 & 92.2 & 93.2 & 91.7 & 92.9 & 91.7\\
+\hline
+\multirow{3}{\linewidth}{\textbf{RNN}} & Precision & N/A & N/A & 80.2 & N/A & N/A & 84.9\\
+ & Accuracy & N/A & N/A & 86.7 & N/A & N/A & 88.7\\
+ & Recall & N/A & N/A & 92.8 & N/A & N/A & 92.4\\
+\hline
+\multirow{3}{\linewidth}{\textbf{LSTM}} & Precision & N/A & N/A & 94.1 & N/A & N/A & 88.7\\
+ & Accuracy & N/A & N/A & 94.1 & N/A & N/A & 90.8\\
+ & Recall & N/A & N/A & 94.4 & N/A & N/A & 92.2\\
+\hline\hline
+\end{tabular}
+\caption{Results for all the classification models}
+\label{tab:results}
+\end{table*}
 \indent Overall, for control one, word embeddings with a two-layer neural network obtained the best accuracy of 94.3\%. With control two, tf-idf-weighted BoW with a Naïve Bayes classifier had the best accuracy of 92.4\%. We believe that richer, more complicated models like RNNs and LSTMs did not do as well because they must have overfit on the training set, which eventually led to a lower accuracy on the test set. \\
 \indent In general, our experiments with control one had higher accuracy than with control two. Therefore, we conclude that classifiers find it easier to distinguish between generic social media text and the experiences of MS patients rather than distinguish between experiences of diabetes patients and MS patients. \\
 \indent Another interesting observation is that for control two, word embeddings always performed worse than BoW or tf-idf-weighted BoW, even though word embeddings are usually known for having more semantic richness than BoW models \citep{Mikolav:13}. This result can be explained by the fact that BoW models give more weight to particular words, which likely correspond to symptoms of MS and diabetes in this case. On the other hand, word embeddings cannot distinguish that well between the MS-diagnosed user group and the diabetes control because comments from both these groups contain medical terminology and are thus likely to have similar word embeddings.
